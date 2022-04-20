@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="componente-principal">
+    <h1>Cadastro de curso</h1>
+    <p>Entre com a quantidade de vagas:</p>
+    <input type="number" v-model="quantidadeVagas"/>
+    <Contador :quantidadeVagas="quantidadeVagas" @vagasEncerradas="encerrarVagas"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Contador from './components/Contador.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      quantidadeVagas: 0
+    }
+  },
   components: {
-    HelloWorld
+    Contador
+  },
+  methods:{
+    encerrarVagas() {
+      alert('Vagas encerradas!')
+    }
   }
 }
 </script>
